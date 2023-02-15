@@ -45,6 +45,10 @@ void icmp_send_echo_request(ipaddr_t *dst) {
     }
 }
 
+void icmp_send_timestamp_request(ipaddr_t* dst) {
+    //TODO
+}
+
 void icmp_receive(ipaddr_t *dst, ipaddr_t *src, mbuf_t pkt) {
     struct icmp_header header;
     if (mbuf_read(&pkt, &header, sizeof(header)) != sizeof(header)) {

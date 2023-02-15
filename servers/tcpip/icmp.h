@@ -6,8 +6,10 @@
 #include "tcpip.h"
 #include <list.h>
 
-#define ICMP_TYPE_ECHO_REPLY   0x00
-#define ICMP_TYPE_ECHO_REQUEST 0x08
+#define ICMP_TYPE_ECHO_REPLY        0x00
+#define ICMP_TYPE_ECHO_REQUEST      0x08
+#define ICMP_TYPE_TIMESTAMP_REQUEST 0x0D
+#define ICMP_TYPE_TIMESTAMP_REPLY   0x0E
 
 struct icmp_header {
     uint8_t type;
@@ -18,6 +20,7 @@ struct icmp_header {
 } __packed;
 
 void icmp_send_echo_request(ipaddr_t *dst);
+void icmp_send_timestamp_request(ipaddr_t *dst);
 void icmp_receive(ipaddr_t *dst, ipaddr_t *src, mbuf_t pkt);
 
 #endif
